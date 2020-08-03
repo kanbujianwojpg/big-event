@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,user-scalable=no" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./asset/lib/css/layui.css" />
+    <script>
+      //判断用户是否已经登录
+      var token = sessionStorage.getItem('mytoken');
+      if (!token) {
+        //token不存在,跳转到登录页面
+        location.href = './login.html';
+      }
+    </script>
     <title>首页</title>
   </head>
   <body></body>

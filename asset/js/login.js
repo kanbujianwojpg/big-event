@@ -38,6 +38,9 @@ $(function () {
       success: function (res) {
         console.log(res);
         if (res.status === 0) {
+          //如登录成功,后端会返回一个token.前端需要缓存
+          sessionStorage.setItem('mytoken', res.token);
+          //登录成功,跳转主页面
           location.href = './index.html';
         } else {
           alert(res.message);
