@@ -19,10 +19,11 @@ $(function () {
       //获取原密码
       var prePwd = $('.reg-form input[type=password]').eq(0);
       if (prePwd !== value) {
-        return "两次输入的密码不一致"
+        return '两次输入的密码不一致';
       }
     },
   });
+
   //监听登录提交事件
   $('.login-form').submit(function (e) {
     //禁用表单默认行为
@@ -43,5 +44,15 @@ $(function () {
         }
       },
     });
+  });
+
+  //控制登录和注册表单切换
+  $('.login-link').click(function () {
+    $('.login-form').hide();
+    $('.reg-form').show();
+  });
+  $('.reg-link').click(function () {
+    $('.reg-form').hide();
+    $('.login-form').show();
   });
 });

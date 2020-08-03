@@ -24,10 +24,6 @@ body {
   background: url(../images/login_title.png) no-repeat center;
 }
 
-.login-form {
-  display: block;
-}
-
 .reg-form {
   display: none;
 }
@@ -36,7 +32,8 @@ body {
   padding: 0 30px;
 }
 
-.right-link {
+.login-link,
+.reg-link {
   /*display: flex;
   justify-content: flex-end;*/
   text-align: right;
