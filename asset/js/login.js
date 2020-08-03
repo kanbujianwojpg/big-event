@@ -14,9 +14,17 @@ $(function () {
         return '密码必须是6位数字';
       }
     },
+    samePwd: function (value) {
+      //验证两次输入的密码是否一样
+      //获取原密码
+      var prePwd = $('.reg-form input[type=password]').eq(0);
+      if (prePwd !== value) {
+        return "两次输入的密码不一致"
+      }
+    },
   });
   //监听登录提交事件
-  $('.layui-form').submit(function (e) {
+  $('.login-form').submit(function (e) {
     //禁用表单默认行为
     e.preventDefault();
     //获取表单数据
