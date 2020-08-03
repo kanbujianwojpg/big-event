@@ -36,7 +36,7 @@ body {
   top: 10px;
 }
 .right-link {
-  /* float: right; */
-  display: flex;
-  justify-content: flex-end;
+  text-align: right;
+  /* display: flex;
+  justify-content: flex-end; */
 }
