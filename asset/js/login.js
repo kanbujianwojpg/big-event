@@ -15,7 +15,7 @@ $(function () {
       }
     },
   });
-  //监听提交事件
+  //监听登录提交事件
   $('.layui-form').submit(function (e) {
     //禁用表单默认行为
     e.preventDefault();
