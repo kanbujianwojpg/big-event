@@ -18,15 +18,15 @@
     <div class="login-box">
       <div class="login-title"></div>
       <!-- 表单结构 -->
-      <form action="" class="layui-form">
+      <form action="" class="layui-form" id="login">
         <!-- 账号 -->
         <div class="layui-form-item">
           <i class="layui-icon layui-icon-username"></i>
           <input
             type="text"
-            name="title"
+            name="username"
             required
-            lay-verify="required"
+            lay-verify="uname"
             placeholder="请输入用户名"
             autocomplete="off"
             class="layui-input"
@@ -35,7 +35,15 @@
         <!-- 密码 -->
         <div class="layui-form-item">
           <i class="layui-icon layui-icon-password"></i>
-          <input type="text" name="title" required lay-verify="required" placeholder="请输入密码" autocomplete="off" class="layui-input" />
+          <input
+            type="password"
+            name="password"
+            required
+            lay-verify="pwd"
+            placeholder="请输入密码"
+            autocomplete="off"
+            class="layui-input"
+          />
         </div>
         <!-- 提交 -->
         <div class="layui-form-item">
@@ -47,6 +55,8 @@
         </div>
       </form>
     </div>
+    <script src="./asset/lib/jquery.js"></script>
     <script src="./asset/lib/layui/layui.all.js"></script>
+    <script src="./asset/js/login.js"></script>
   </body>
 </html>
