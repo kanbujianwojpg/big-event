@@ -5,9 +5,6 @@ $(function () {
     $.ajax({
       type: 'get',
       url: '/my/userinfo',
-      headers: {
-        Authorization: sessionStorage.getItem('mytoken'),
-      },
       success: function (res) {
         if (res.status === 0) {
           var data = res.data;
@@ -30,7 +27,7 @@ $(function () {
   //退出功能
   $('#logout-btn').click(function () {
     //进行弹窗确认
-    layer.confirm('确实要退出吗?', { icon: 3, title: '提示' }, function (index) {
+    layer.confirm('确实要退出吗?', { icon: 0, title: '提示' }, function (index) {
       //index表示当前的弹窗
       //点击确定触发回调函数
       sessionStorage.removeItem('mytoken');
