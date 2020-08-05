@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <title>layout 后台大布局 - Layui</title>
     <link rel="stylesheet" href="./asset/lib/layui/css/layui.css" />
+    <link rel="stylesheet" href="./asset/fonts/iconfont.css" />
+    <link rel="stylesheet" href="./asset/css/index.css" />
     <script>
       //判断用户是否已经登录
       var token = sessionStorage.getItem('mytoken');
@@ -33,29 +35,76 @@
               <dd><a href="">重置密码</a></dd>
             </dl>
           </li>
-          <li class="layui-nav-item"><a href="">退了</a></li>
+          <li class="layui-nav-item">
+            <a href="">
+              &nbsp;
+              <i class="layui-icon layui-icon-logout"></i>
+              退了
+            </a>
+          </li>
         </ul>
       </div>
 
       <div class="layui-side layui-bg-black">
         <div class="layui-side-scroll">
           <!-- 左侧菜单 -->
-          <ul class="layui-nav layui-nav-tree" lay-shrink='all' lay-filter="test">
-            <li class="layui-nav-item layui-this"><a href="">首页</a></li>
+          <ul class="layui-nav layui-nav-tree" lay-shrink="all" lay-filter="test">
+            <li class="layui-nav-item layui-this">
+              <a href="">
+                <span class="iconfont icon-home"></span>
+                首页
+              </a>
+            </li>
             <li class="layui-nav-item layui-nav-itemed">
-              <a class="" href="javascript:;">文章管理</a>
+              <a class="" href="javascript:;">
+                <span class="iconfont">&#xe615;</span>
+                文章管理
+              </a>
               <dl class="layui-nav-child">
-                <dd><a href="javascript:;">文章类别</a></dd>
-                <dd><a href="javascript:;">文章列表</a></dd>
-                <dd><a href="javascript:;">发表文章</a></dd>
+                <dd>
+                  <a href="javascript:;">
+                    <i class="layui-icon layui-icon-app"></i>
+                    文章类别
+                  </a>
+                </dd>
+                <dd>
+                  <a href="javascript:;">
+                    <i class="layui-icon layui-icon-app"></i>
+                    文章列表
+                  </a>
+                </dd>
+                <dd>
+                  <a href="javascript:;">
+                    <i class="layui-icon layui-icon-app"></i>
+                    发表文章
+                  </a>
+                </dd>
               </dl>
             </li>
             <li class="layui-nav-item">
-              <a href="javascript:;">个人中心</a>
+              <a href="javascript:;">
+                <span class="iconfont icon-user"></span>
+                个人中心
+              </a>
               <dl class="layui-nav-child">
-                <dd><a href="javascript:;">基本资料</a></dd>
-                <dd><a href="javascript:;">更换头像</a></dd>
-                <dd><a href="javascript:;">修改密码</a></dd>
+                <dd>
+                  <a href="javascript:;">
+                    <i class="layui-icon layui-icon-app"></i>
+                    基本资料
+                  </a>
+                </dd>
+                <dd>
+                  <a href="javascript:;">
+                    <i class="layui-icon layui-icon-app"></i>
+                    更换头像
+                  </a>
+                </dd>
+                <dd>
+                  <a href="javascript:;">
+                    <i class="layui-icon layui-icon-app"></i>
+                    修改密码
+                  </a>
+                </dd>
               </dl>
             </li>
           </ul>
