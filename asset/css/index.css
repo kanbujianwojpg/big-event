@@ -8,9 +8,12 @@
 .welcome {
   color: white;
 }
-.welcome img {
+.welcome img,
+.nav-user img {
+  width: 32px;
   height: 32px;
   margin: 14px;
+  border-radius: 50%;
 }
 
 .avatar {
