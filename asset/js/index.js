@@ -12,8 +12,6 @@ $(function () {
         console.log(data);
         var user = $('.welcome');
         var nuser = $('.nav-user');
-        user.find('.avatar').hide();
-        nuser.find('.avatar').hide();
         if (data.user_pic) {
           user.prepend(`<img src="${data.user_pic}" />`);
           nuser.prepend(`<img src="${data.user_pic}" />`);
