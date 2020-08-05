@@ -11,22 +11,18 @@ $(function () {
         var data = res.data;
         console.log(data);
         var user = $('.welcome');
+        var nuser = $('.nav-user');
         user.find('.avatar').hide();
+        nuser.find('.avatar').hide();
         if (data.user_pic) {
-          user.html(`<img src="${data.user_pic}" />`);
+          user.prepend(`<img src="${data.user_pic}" />`);
+          nuser.prepend(`<img src="${data.user_pic}" />`);
         } else {
-          user.html(`<div class='avatar'>U</div>`);
+          user.prepend(`<div class='avatar'>U</div>`);
+          nuser.prepend(`<div class='avatar'>U</div>`);
         }
-        user.append(`<span>欢迎${data.username}</span>`);
-        //更新右上角
-        var user = $('.nav-user');
-        user.find('.avatar').hide();
-        if (data.user_pic) {
-          user.html(`<img src="${data.user_pic}" />`);
-        } else {
-          user.html(`<div class='avatar'>U</div>`);
-        }
-        user.append(`<span>${data.username}</span>`);
+        user.find('.userName').html('欢迎' + data.username);
+        nuser.find('.userName').text(data.username);
       }
     },
   });
