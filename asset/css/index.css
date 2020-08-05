@@ -4,3 +4,23 @@
 .layui-icon {
   padding: 0 10px;
 }
+
+.welcome {
+  color: white;
+}
+.welcome img {
+  height: 32px;
+  margin: 14px;
+}
+
+.avatar {
+  display: inline-block;
+  height: 32px;
+  width: 32px;
+  margin: 14px;
+  background: #00988b;
+  border-radius: 16px;
+  text-align: center;
+  line-height: 32px;
+  vertical-align: middle;
+}
