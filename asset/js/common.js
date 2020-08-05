@@ -3,6 +3,12 @@ $(function () {
   //发送请求统一设置
   var baseURL = 'http://ajax.frontend.itheima.net';
   $.ajaxPrefilter(function (option) {
+    //接口开始发送请求时,进度条显示
+    //开始时触发
+    option.beforeSend = function () {
+      NProgress && NProgress.start();
+    };
+
     //统一处理请求头
     if (option.url.indexOf('/my/') !== -1) {
       option.headers = { Authorization: sessionStorage.getItem('mytoken') };
@@ -19,6 +25,8 @@ $(function () {
         sessionStorage.removeItem('mytoken');
         location.href = './login.html';
       }
+      //接口完成后,进度条结束
+      NProgress && NProgress.done();
     };
   });
 });
