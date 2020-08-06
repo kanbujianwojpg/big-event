@@ -11,6 +11,8 @@ $(function () {
           var user = $('.welcome');
           var nuser = $('.nav-user');
           if (data.user_pic) {
+            user.find('img').remove();
+            nuser.find('img').remove();
             user.prepend(`<img src="${data.user_pic}" />`);
             nuser.prepend(`<img src="${data.user_pic}" />`);
           } else {
@@ -24,6 +26,8 @@ $(function () {
     });
   }
   loadUserInfo();
+  // window.loadUserInfo = loadUserInfo;
+  $.loadUserInfo = loadUserInfo;
   //退出功能
   $('#logout-btn').click(function () {
     //进行弹窗确认
