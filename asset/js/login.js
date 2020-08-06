@@ -43,7 +43,7 @@ $(function () {
           //登录成功,跳转主页面
           location.href = './index.html';
         } else {
-          alert(res.message);
+          layer.msg(res.message);
         }
       },
     });
@@ -76,7 +76,7 @@ $(function () {
           console.log(1);
           $('.login-link').click();
         } else {
-          alert(res.message);
+          layer.msg(res.message);
         }
       },
     });
