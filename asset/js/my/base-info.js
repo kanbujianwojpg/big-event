@@ -23,4 +23,24 @@ $(function () {
     });
   }
   loadUserInfo();
+
+  //修改用户信息提交表单
+  $('.layui-form').submit(function (e) {
+    e.preventDefault();
+    //获取所有的表单数据
+    var fd = $(this).serializeArray();
+    fd = fd.filter(item => item.name !== 'username');
+    $.ajax({
+      type: 'post',
+      url: '/my/userinfo',
+      data: fd,
+      success: function (res) {
+        layer.msg(res.message);
+      },
+    });
+  });
+  //重置表单
+  $('#resetFotm').click(function () {
+    loadUserInfo();
+  });
 });

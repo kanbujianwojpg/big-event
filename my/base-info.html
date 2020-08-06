@@ -15,12 +15,15 @@
         <!-- 表单区域 -->
         <form class="layui-form" action=" " lay-filter="basicForm">
           <!-- 用户名称 -->
+          <!-- 隐藏域:hidden类型的表单不显示,表单提交时会携带该数据-->
+          <input type="hidden" name="id" />
           <div class="layui-form-item">
             <label class="layui-form-label">用户名称</label>
             <div class="layui-input-block">
               <input
                 type="text"
                 name="username"
+                readonly
                 required
                 lay-verify="required"
                 placeholder="请输入用户名称"
@@ -63,7 +66,7 @@
           <div class="layui-form-item">
             <div class="layui-input-block">
               <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
-              <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+              <button type="button" class="layui-btn layui-btn-primary" id="resetFotm">重置</button>
             </div>
           </div>
         </form>
