@@ -14,7 +14,7 @@
       <div class="layui-card-body">
         <!-- 表单区域 -->
         <form class="layui-form" action=" " lay-filter="basicForm">
-          <!-- 用户名称 -->
+          <!-- 原密码 -->
           <div class="layui-form-item">
             <label class="layui-form-label">原密码</label>
             <div class="layui-input-block">
@@ -29,7 +29,7 @@
               />
             </div>
           </div>
-          <!-- 用户昵称 -->
+          <!-- 新密码 -->
           <div class="layui-form-item">
             <label class="layui-form-label">新密码</label>
             <div class="layui-input-block">
@@ -44,13 +44,12 @@
               />
             </div>
           </div>
-          <!-- 用户邮箱 -->
+          <!-- 确认新密码 -->
           <div class="layui-form-item">
             <label class="layui-form-label">确认新密码</label>
             <div class="layui-input-block">
               <input
                 type="password"
-                name="rePwd"
                 required
                 lay-verify="required"
                 placeholder="请确认新密码"
