@@ -47,12 +47,12 @@ $(function () {
     e.preventDefault();
     //获取筛选条件的值
     var conditions = $('#search-form').serializeArray();
-    console.log(conditions);
     conditions.forEach(element => {
       if (element.value) {
         params[element.name] = element.value;
       }
     });
+    console.log(params);
     loadArticleList(params);
   });
 
