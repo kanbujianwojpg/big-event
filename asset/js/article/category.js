@@ -44,4 +44,20 @@ $(function () {
       });
     });
   });
+  //利用事件委托监听删除按钮
+  $('.layui-table tbody').on('click', '.layui-btn-danger', function (e) {
+    var id = $(e.target).data('id');
+    layer.confirm('确定要删除吗?', { icon: 0, title: '提示' }, function (index) {
+      $.ajax({
+        type: 'get',
+        url: '/my/article/deletecate/' + id,
+        data: { id: id },
+        success: function (res) {
+          layer.msg(res.message);
+          loadArticle();
+        },
+      });
+      layer.close(index);
+    });
+  });
 });
