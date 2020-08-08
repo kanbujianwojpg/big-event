@@ -8,28 +8,80 @@
     <link rel="stylesheet" href="../asset/lib/nprogress/nprogress.css" />
     <link rel="stylesheet" href="../asset/lib/cropper/cropper.css" />
     <link rel="stylesheet" href="../asset/css/publish.css" />
+    <script type="text/html" id="category-tpl">
+      <option value="">--请选择分类--</option>
+      {{each data}}
+        <option value="{{$value.Id}}">{{$value.name}}</option>
+      {{/each}}
+    </script>
   </head>
   <body>
     <div class="layui-card">
       <div class="layui-card-header">发布文章</div>
       <div class="layui-card-body">
-        <form action="" id="add-form">
-          标题：
-          <input type="text" name="title" />
-          <br />
-          分类id：
-          <input type="text" name="cate_id" />
-          <br />
-          内容：
-          <input type="text" name="content" />
-          <br />
-          文章封面：
-          <input type="file" name="cover_img" />
-          <br />
-          状态：
-          <input type="text" name="state" />
-          <br />
-          <button>提交</button>
+        <!-- 表单区域 -->
+        <form class="layui-form" action="">
+          <!-- 第一行：文章标题 -->
+          <div class="layui-form-item">
+            <label class="layui-form-label">文章标题</label>
+            <div class="layui-input-block">
+              <input
+                type="text"
+                name="title"
+                required
+                lay-verify="required"
+                placeholder="请输入文章标题"
+                autocomplete="off"
+                class="layui-input"
+              />
+            </div>
+          </div>
+          <!-- 第二行：文章分类 -->
+          <div class="layui-form-item">
+            <label class="layui-form-label">文章类别</label>
+            <div class="layui-input-block">
+              <select name="cate_id" id="cate_id" lay-verify="required">
+                <!-- 这里放分类 -->
+              </select>
+            </div>
+          </div>
+          <!-- 第三行：文章内容 -->
+          <div class="layui-form-item">
+            <!-- 左侧的 label -->
+            <label class="layui-form-label">文章内容</label>
+            <!-- 为富文本编辑器外部的容器设置高度 -->
+            <div class="layui-input-block" style="height: 400px;">
+              <!-- 重要：将来这个 textarea 会被初始化为富文本编辑器 -->
+              <textarea name="content"></textarea>
+            </div>
+          </div>
+          <!-- 第四行：文章封面 -->
+          <div class="layui-form-item">
+            <!-- 左侧的 label -->
+            <label class="layui-form-label">文章封面</label>
+            <!-- 选择封面区域 -->
+            <div class="layui-input-block cover-box">
+              <!-- 左侧裁剪区域 -->
+              <div class="cover-left">
+                <img id="image" src="../asset/images/sample2.jpg" alt="" />
+              </div>
+              <!-- 右侧预览区域和选择封面区域 -->
+              <div class="cover-right">
+                <!-- 预览的区域 -->
+                <div class="img-preview"></div>
+                <!-- 选择封面按钮 -->
+                <input type="file" name="cover_img" id="cover_img" style="display: none;" />
+                <button id="selectBtn" type="button" class="layui-btn layui-btn-danger">选择封面</button>
+              </div>
+            </div>
+          </div>
+          <!-- 第五行 提交 -->
+          <div class="layui-form-item">
+            <div class="layui-input-block">
+              <button class="layui-btn" lay-submit id="btnPublish">发布</button>
+              <button class="layui-btn layui-btn-primary" lay-submit id="btnSave">存为草稿</button>
+            </div>
+          </div>
         </form>
       </div>
     </div>
@@ -43,6 +95,9 @@
     <script src="../asset/lib/tinymce/tinymce_setup.js"></script>
     <script src="../asset/lib/layui/layui.all.js"></script>
     <!-- 加载模板引擎 -->
+    <!-- 富文本 -->
+    <script src="./asset/lib/tinymce/tinymce.min.js"></script>
+    <script src="./asset/lib/tinymce/tinymce_setup.js"></script>
     <script src="../asset/lib/template-web.js"></script>
     <script src="../asset/lib/nprogress/nprogress.js"></script>
     <script src="../asset/js/common.js"></script>
