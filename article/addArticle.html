@@ -8,7 +8,31 @@
     <link rel="stylesheet" href="../asset/lib/nprogress/nprogress.css" />
     <link rel="stylesheet" href="../asset/lib/cropper/cropper.css" />
     <link rel="stylesheet" href="../asset/css/publish.css" />
-
+  </head>
+  <body>
+    <div class="layui-card">
+      <div class="layui-card-header">发布文章</div>
+      <div class="layui-card-body">
+        <form action="" id="add-form">
+          标题：
+          <input type="text" name="title" />
+          <br />
+          分类id：
+          <input type="text" name="cate_id" />
+          <br />
+          内容：
+          <input type="text" name="content" />
+          <br />
+          文章封面：
+          <input type="file" name="cover_img" />
+          <br />
+          状态：
+          <input type="text" name="state" />
+          <br />
+          <button>提交</button>
+        </form>
+      </div>
+    </div>
     <script src="../asset/lib/jquery.js"></script>
     <script src="../asset/lib/layui/layui.all.js"></script>
     <!-- 加载剪裁js -->
@@ -22,9 +46,6 @@
     <script src="../asset/lib/template-web.js"></script>
     <script src="../asset/lib/nprogress/nprogress.js"></script>
     <script src="../asset/js/common.js"></script>
-    <script src="../asset/js/article/publish.js"></script>
-  </head>
-  <body>
-    <div>发表文章</div>
+    <script src="../asset/js/article/addArticle.js"></script>
   </body>
 </html>
