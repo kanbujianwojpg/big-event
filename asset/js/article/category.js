@@ -21,9 +21,27 @@ $(function () {
       //弹出层标题
       title: '添加文章分类',
       //弹出层内容
-      content: $('#tpl-add').html(),
+      content: $('#add-form-tpl').html(),
       //弹出层区域大小
       area: ['500px', '250px'],
+    });
+
+    //监听submit事件,提交表单
+    $('#add-form').submit(function (e) {
+      e.preventDefault();
+      $.ajax({
+        type: 'post',
+        url: '/my/article/addcates',
+        data: $(this).serialize(),
+        success: function (res) {
+          if (res.status === 0) {
+            //关闭弹窗刷新列表
+            layer.msg(res.message);
+            layer.close(addIndex);
+            loadArticle();
+          }
+        },
+      });
     });
   });
 });

@@ -5,6 +5,31 @@
     <title>文章分类</title>
     <link rel="stylesheet" type="text/css" href="../asset/lib/layui/css/layui.css" />
     <link rel="stylesheet" type="text/css" href="../asset/css/catergory.css" />
+    <script type="text/html" id="add-form-tpl">
+        <form id="add-form" class="layui-form"  style="margin: 15px 30px 0 0">
+          <!-- 第一行：类别名称 -->
+          <div class="layui-form-item">
+          <label class="layui-form-label">类别名称</label>
+          <div class="layui-input-block">
+              <input type="text" name="name" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+          </div>
+          </div>
+          <!-- 第二行：类别别名 -->
+          <div class="layui-form-item">
+          <label class="layui-form-label">类别别名</label>
+          <div class="layui-input-block">
+              <input type="text" name="alias" required  lay-verify="required" placeholder="请输入别名" autocomplete="off" class="layui-input">
+          </div>
+          </div>
+          <!-- 第三行：按钮 -->
+          <div class="layui-form-item">
+          <div class="layui-input-block">
+              <button class="layui-btn" lay-submit lay-filter="formDemo">确认添加</button>
+              <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+          </div>
+          </div>
+      </form>
+    </script>
     <script type="text/html" id="tpl-article">
       {{each data}}
       <tr>
