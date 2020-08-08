@@ -91,7 +91,7 @@ $(function () {
           //监听submit事件,提交表单
           $('#edit-form').submit(function (e) {
             e.preventDefault();
-            console.log($(this).serialize());
+            //利用隐藏域传递三个值,这样就能传Id了
             $.ajax({
               type: 'post',
               url: '/my/article/updatecate',
