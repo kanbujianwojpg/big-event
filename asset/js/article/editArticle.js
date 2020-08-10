@@ -1,10 +1,11 @@
 $(function () {
-  //发布文章
+  var form = layui.form;
+  //修改文章
   //获取文章的分类列表
   var form = layui.form;
+  var id = new URLSearchParams(location.search).get('id');
   function loadCateGoryList() {
     $.ajax({
-      type: 'get',
       url: '/my/article/cates',
       success: function (res) {
         console.log(res);
@@ -13,23 +14,46 @@ $(function () {
         $('#cate_id').html(tags);
         //重新渲染select列表
         form.render('select');
+        loadArticleContent();
       },
     });
   }
   loadCateGoryList();
 
+  //把写过的数据添加
+  function loadArticleContent() {
+    //获取到文章id
+    $.ajax({
+      url: '/my/article/' + id,
+      data: {
+        id: id,
+      },
+      success: function (response) {
+        console.log(response);
+        form.val('editArticleForm', {
+          Id: response.data.Id,
+          title: response.data.title,
+          cate_id: response.data.cate_id,
+          content: response.data.content,
+        });
+
+        //初始化裁剪区
+        var $image = $('.cover-left img');
+        var options = {
+          // 纵横比
+          aspectRatio: 400 / 280,
+          autoCropArea: 1, // 定义剪裁区的大小
+          preview: '.img-preview', //指定预览区域
+        };
+        // $image.cropper(options);
+        // 这里处理图片
+        $image.attr('src', 'http://ajax.frontend.itheima.net' + response.data.cover_img).cropper(options);
+        // $image.attr('src', 'http://127.0.0.1:5500' + res.data.cover_img).cropper(options);
+      },
+    });
+  }
   //初始化富文本
   initEditor();
-
-  //初始化裁剪区
-  var $image = $('.cover-left img');
-  var options = {
-    // 纵横比
-    aspectRatio: 400 / 280,
-    preview: '.img-preview', //指定预览区域
-  };
-  $image.cropper(options);
-
   //选择图片
   $('#selectBtn').click(function () {
     $('#cover_img').click();
@@ -61,7 +85,7 @@ $(function () {
   $('.layui-form').submit(function (e) {
     e.preventDefault();
     var fd = new FormData(this);
-    $image
+    $('#image')
       .cropper('getCroppedCanvas', {
         // 创建一个 Canvas 画布
         width: 400,
@@ -73,13 +97,14 @@ $(function () {
         fd.append('cover_img', blob);
         $.ajax({
           type: 'POST',
-          url: '/my/article/add',
+          url: '/my/article/edit',
           data: fd,
           processData: false, // 防止把请求参数转换为字符串
           contentType: false, // 禁止使用默认的提交参数类型
           success: function (res) {
+            layer.msg(res.message);
             if (res.status === 0) {
-              layer.msg(res.message);
+              location.href = './list.html';
             }
           },
         });

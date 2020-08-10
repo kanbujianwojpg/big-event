@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="../asset/lib/cropper/cropper.css" />
     <link rel="stylesheet" href="../asset/css/publish.css" />
     <script type="text/html" id="category-tpl">
-      <option value="">--请选择分类--</option>
       {{each data}}
         <option value="{{$value.Id}}">{{$value.name}}</option>
       {{/each}}
@@ -17,10 +16,11 @@
   </head>
   <body>
     <div class="layui-card">
-      <div class="layui-card-header">发布文章</div>
+      <div class="layui-card-header">修改文章</div>
       <div class="layui-card-body">
         <!-- 表单区域 -->
-        <form class="layui-form" action="">
+        <form class="layui-form" id="edit-form" action="" lay-filter="editArticleForm">
+          <input type="hidden" name="Id" />
           <!-- 第一行：文章标题 -->
           <div class="layui-form-item">
             <label class="layui-form-label">文章标题</label>
@@ -70,7 +70,7 @@
                 <!-- 预览的区域 -->
                 <div class="img-preview"></div>
                 <!-- 选择封面按钮 -->
-                <input type="file" name="cover_img" id="cover_img" style="display: none;" />
+                <input type="file" id="fileCover" name="cover_img" id="cover_img" style="display: none;" />
                 <button id="selectBtn" type="button" class="layui-btn layui-btn-danger">选择封面</button>
               </div>
             </div>
@@ -78,7 +78,7 @@
           <!-- 第五行 提交 -->
           <div class="layui-form-item">
             <div class="layui-input-block">
-              <button class="layui-btn" lay-submit id="btnPublish">发布</button>
+              <button class="layui-btn" lay-submit id="btnPublish">修改并发布</button>
               <button class="layui-btn layui-btn-primary" lay-submit id="btnSave">存为草稿</button>
             </div>
           </div>
@@ -101,6 +101,6 @@
     <script src="../asset/lib/template-web.js"></script>
     <script src="../asset/lib/nprogress/nprogress.js"></script>
     <script src="../asset/js/common.js"></script>
-    <script src="../asset/js/article/addArticle.js"></script>
+    <script src="../asset/js/article/editArticle.js"></script>
   </body>
 </html>

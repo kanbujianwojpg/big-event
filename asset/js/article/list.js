@@ -48,11 +48,14 @@ $(function () {
     //获取筛选条件的值
     var conditions = $('#search-form').serializeArray();
     conditions.forEach(element => {
-      if (element.value) {
+      if (!element.value) {
+        if (params[element.name]) {
+          delete params[element.name];
+        }
+      } else {
         params[element.name] = element.value;
       }
     });
-    console.log(params);
     loadArticleList(params);
   });
 
@@ -87,5 +90,11 @@ $(function () {
       });
       layer.close(index);
     });
+  });
+
+  //文章的编辑操作
+  $('.layui-table tbody').on('click', '.edit', function (e) {
+    var id = $(e.target).data('id');
+    location.href = './editArticle.html' + '?id=' + id;
   });
 });
